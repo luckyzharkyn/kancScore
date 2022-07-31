@@ -1,0 +1,52 @@
+.header{
+    animation-duration: 2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+
+    li {
+
+        &:hover {
+            animation: links .5s linear 0s 1 alternate forwards;
+        }
+        a {
+            transition: all 0.5s linear;
+            &:hover {
+                transform: scale(1.2);
+                color: red;
+            }
+        }
+    }
+
+}
+
+@keyframes links {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
+
+.main__content {
+    animation-duration: 2s;
+    animation-direction: alternate;
+}
+
+
+.main__catalogs {
+    animation-duration: 2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.main_catalog_anim {
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    animation-direction: reverse;
+    animation-timing-function: ease-in;
+}
+
+// transition
+

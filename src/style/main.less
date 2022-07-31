@@ -1,0 +1,157 @@
+main {
+    .main__img {
+        background-image: url('https://klike.net/uploads/posts/2020-03/1583399713_3.jpg');
+        width: 100%;
+        height: 150px;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    
+    .main__content {
+        display: grid;
+        grid-template-columns: 25% 75%;
+
+        .sidebar {
+            ul {
+                text-align: center;
+                font-size: 15px;
+                margin: 0;
+                max-width: 200px;
+                list-style: none;
+                
+                li {
+
+                    padding: 13px 0px;
+                    border: 1px solid rgb(86, 84, 84);
+                    background-color: antiquewhite;
+
+                    a {
+                        color: black;
+                        text-decoration: none;
+
+                        &:hover {
+                            color: green;
+                        }
+                    }
+
+                    &:first-child {
+                        background-color: rgb(68, 209, 68);
+                        color: white;
+                    }
+                }
+
+            }
+        }
+
+        .site_content {
+            .search {
+                display: grid;
+                grid-template-columns: 75% 25%;
+                align-items: center;
+
+                input {
+                    padding: 10px 10px;
+                    width: 100%;
+                    
+                }
+                .phoneNumber {
+                    margin: 0 auto;
+                    padding: 10px 20px;
+                    background-color: green;
+                }
+            }
+            .main__content__advertisement {
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                grid-template-rows: 25% 25% 25%;
+                img {
+                    width: 100%;
+                }
+                .poster {
+                    grid-row-start: 1;
+                    grid-row-end: 3;
+                }
+                .poster2 {
+                    justify-self: stretch;
+                }
+                .poster-nav {
+                    ul {
+                        margin: 0;
+                        padding: 0;
+                        list-style: none;
+                        display: flex;
+                    }
+                    li {
+                        text-align: center;
+                        width: 80px;
+                        padding: 10px 20px;
+                        background-color:blanchedalmond;
+                        border: 1px solid black;
+                    }
+                }
+            }
+            .main__catalog {
+
+                img {
+                    width: 100%;
+                }
+
+                ul {
+                    margin: 0;
+                    padding: 0;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr 1fr;
+                    gap: 10px 20px;
+
+                    list-style: none;
+                    text-align: center;
+                }
+
+                li {
+                    border: 1px solid black;
+                    padding: 10px 5px;
+                    a {
+                        text-decoration: none;
+                    }
+                    button {
+                        padding: 5px 10px;
+                        background-color: green;
+                        color: #fff;
+                    }
+                    p {
+                        // overflow: hidden;
+                        color: black;
+                        text-overflow:ellipsis;
+                    }
+                    p:nth-child(3) {
+                        color:rgb(86, 84, 84)
+                    }
+                }
+            }
+            .main__news {
+                margin-top: 10px;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows: 30px 100%;
+                &_title {
+                    grid-column-start: 1;
+                    grid-column-end: 4;
+                    color:rgb(68, 209, 68);
+                    text-transform: uppercase;
+                }
+
+                .news_block {
+                    .title {
+                        font-weight: bold;
+                    }
+                    .description {
+                        font-size: 14px;
+                        color:rgb(145, 140, 140)
+                    }
+                }
+
+            }
+        }
+
+    }
+}

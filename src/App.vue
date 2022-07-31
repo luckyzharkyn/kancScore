@@ -1,26 +1,36 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+   <div class="container">
+        <HeaderComponent />
+    </div>
+    <MainComponent />
+    <div class="container">
+        <FooterComponent />
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HeaderComponent from "./components/Header/HeaderComponent.vue";
+import FooterComponent from "./components/Footer/FooterComponent.vue";
+import MainComponent from "./components/Main/MainComponent.vue";
+  
+  export default {
+    name: "app",
+    data() {
+        return {
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+        }
+    },
+    components: {
+    HeaderComponent,
+    FooterComponent,
+    MainComponent
 }
+}
+  
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  @import url('./magic-master/magic-master/dist/magic.css');
+  @import url('./style.css');
+
 </style>
