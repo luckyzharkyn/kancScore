@@ -2,7 +2,7 @@
     <main>
         <MainImg />
         <div class="container">
-            <div class="main__content" :class="addAnimation()">
+            <div class="main__content" :class="{vanishIn: true}">
                 <SideBar/>
 
                 <div class="site_content">
@@ -33,17 +33,15 @@ import CatalogsList from "./MainContent/CatalogsList.vue";
             }
         },
         methods: {
-            addAnimation() {
-                return {vanishIn: true}
-            },
+            
         },
         components: {
-    MainImg,
-    SearchComponent,
-    MainNews,
-    SideBar,
-    MainCatalog,
-    CatalogsList
-},
+            MainImg,
+            SearchComponent,
+            MainNews,
+            SideBar,
+            MainCatalog,
+            CatalogsList
+        },
 }
 </script>

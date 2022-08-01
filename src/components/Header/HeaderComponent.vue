@@ -1,5 +1,5 @@
 <template>
-        <Header class="header" :class="addAnimation()">
+        <Header class="header" :class="{puffIn: true}">
                 <div class="navigation">
                     <ul>
                         <li>
@@ -40,9 +40,6 @@
             }
         },
         methods: {
-            addAnimation() {
-                return {puffIn: true}
-            }
         }
     }
 </script>

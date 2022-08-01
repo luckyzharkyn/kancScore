@@ -1,5 +1,5 @@
 <template>
-    <div class="main__catalogs" :class="addAnimation()">
+    <div class="main__catalogs" :class="{swap:true}">
         <div class="catalog_filter">
             <div>
                 <p>Catalog</p>
@@ -111,9 +111,6 @@
         methods: {
             getPrice(price) {
                 return price + " тг";
-            },
-            addAnimation() {
-                return {swap:true}
             },
         }
     }
