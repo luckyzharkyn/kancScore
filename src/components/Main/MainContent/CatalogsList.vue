@@ -45,8 +45,6 @@
     export default {
         data() {
             return {
-                buttonEnter: null,
-                inCart: [],
                 selected: "hello",
                 settings: [
                     { 

@@ -3,15 +3,17 @@
         <MainImg />
         <div class="container">
             <div class="main__content" :class="{vanishIn: true}">
-                <SideBar/>
+
+                <SideBar :getActiveCatalog="getActiveCatalog"/>
 
                 <div class="site_content">
+
                     <SearchComponent />
-                    <MainCatalog />
-                    <CatalogsList />
+                    <MainCatalog v-if="PagesList['MainCatalog']"/>
+                    <CatalogsList v-if="PagesList['CatalogsList']"/>
+                    <MainNews />
                         <!-- <router-view>
                         </router-view> -->
-                    <MainNews />
                 </div>
             </div>
         </div>
@@ -29,11 +31,27 @@ import CatalogsList from "./MainContent/CatalogsList.vue";
     export default {
         data() {
             return {
+                PagesList: {
+                    'MainCatalog': true,
+                    'CatalogsList': false,
+                }
                 
             }
         },
         methods: {
-            
+            getActiveCatalog(ActivePage) {
+                let newObj = {...this.PagesList};
+                
+                for(let key in newObj) {
+                    if(key == ActivePage) {
+                        newObj = {...newObj, [key]: true}
+                    } else {
+                        newObj = {...newObj, [key]: false}
+                    }
+                }
+                this.PagesList = newObj;
+            },
+
         },
         components: {
             MainImg,

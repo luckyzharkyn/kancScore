@@ -1,16 +1,16 @@
 <template>
     <div class="main__news">
-                        <div class="main__news_title">News</div>
-                        <div class="news_block" v-for="(item, index) in newsList" :key="index">
-                            <p class="title">
-                                {{item.title}}
-                            </p>
-                            <p class="description">
-                                {{item.description}}
-                            </p>
-                        </div>
-                        
-                    </div>
+        <div class="main__news_title">News</div>
+        <div class="news_block" v-for="(item, index) in newsList" :key="index">
+            <p class="title">
+                {{item.title}}
+            </p>
+            <p class="description">
+                {{item.description}}
+            </p>
+        </div>
+        
+    </div>
 </template>
 
 <script>
