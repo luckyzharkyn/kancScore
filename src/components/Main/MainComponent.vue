@@ -7,8 +7,10 @@
 
                 <div class="site_content">
                     <SearchComponent />
-                        <router-view>
-                        </router-view>
+                    <MainCatalog />
+                    <CatalogsList />
+                        <!-- <router-view>
+                        </router-view> -->
                     <MainNews />
                 </div>
             </div>
@@ -21,6 +23,8 @@ import MainImg from "./MainImg.vue";
 import SideBar from "./MainContent/SideBar.vue";
 import SearchComponent from "./MainContent/SearchComponent.vue";
 import MainNews from "./MainContent/MainNews.vue";
+import MainCatalog from "./MainContent/MainCatalog.vue";
+import CatalogsList from "./MainContent/CatalogsList.vue";
 
     export default {
         data() {
@@ -33,9 +37,13 @@ import MainNews from "./MainContent/MainNews.vue";
                 return {vanishIn: true}
             },
         },
-        components: { 
-            MainImg, SearchComponent, MainNews, 
-            SideBar, 
-        },
+        components: {
+    MainImg,
+    SearchComponent,
+    MainNews,
+    SideBar,
+    MainCatalog,
+    CatalogsList
+},
 }
 </script>

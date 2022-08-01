@@ -27,7 +27,9 @@
                 <div class="list_dates">
                     <div class="list_dates-header">
                         <p>{{item.id}}</p>
-                        <button>in cart</button>
+                        <button>
+                            in cart
+                        </button>
                     </div>
                     <div class="list_dates-footer">
                         {{getPrice(item.price)}}
@@ -43,6 +45,8 @@
     export default {
         data() {
             return {
+                buttonEnter: null,
+                inCart: [],
                 selected: "hello",
                 settings: [
                     { 
@@ -110,7 +114,7 @@
             },
             addAnimation() {
                 return {swap:true}
-            }
+            },
         }
     }
 </script>

@@ -35,6 +35,8 @@
                     {src: 'https://miro.medium.com/max/1400/1*COuwMUFfPAzADv7zEysdbg.jpeg', alt: "percent", className: "percent"}
                 ]
             }
+        },
+        methods: {
         }
     }
 </script>
