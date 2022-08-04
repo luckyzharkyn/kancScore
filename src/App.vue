@@ -1,8 +1,8 @@
 <template>
    <div class="container">
-        <HeaderComponent />
+        <HeaderComponent :setInCart="setInCart"/>
     </div>
-    <MainComponent />
+    <MainComponent :getActiveCart="getActiveCart"/>
     <div class="container">
         <FooterComponent />
     </div>
@@ -17,8 +17,16 @@ import MainComponent from "./components/Main/MainComponent.vue";
     name: "app",
     data() {
         return {
-
+           getActiveCart: ""
         }
+    },
+    methods: {
+      setInCart(value) {
+        this.getActiveCart = value;
+        setTimeout(() => {
+          this.getActiveCart = "";
+        }, 1000);
+      },
     },
     components: {
     HeaderComponent,

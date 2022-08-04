@@ -19,7 +19,8 @@
                 <div class="auth">
                     Авторизация
                 </div>
-                <div class="cart">
+                <div class="cart"
+                     @click="setCart()">
                     Корзина
                 </div>
         </Header>
@@ -27,6 +28,9 @@
 
 <script>
     export default {
+        props: {
+            setInCart: Function
+        },
         data() {
             return {
                 MenuList: [
@@ -40,6 +44,9 @@
             }
         },
         methods: {
+            setCart() {
+                this.setInCart('inCart');
+            }
         }
     }
 </script>

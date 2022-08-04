@@ -2,7 +2,9 @@
     <main>
         <MainImg />
         <div class="container">
-            <div class="main__content" :class="{vanishIn: true}">
+            <div class="main__content" 
+                :class="{vanishIn: true}"
+                id="main__content">
 
                 <SideBar :getActiveCatalog="getActiveCatalog"/>
 
@@ -10,10 +12,8 @@
 
                     <SearchComponent />
                     <MainCatalog v-if="PagesList['MainCatalog']"/>
-                    <CatalogsList v-if="PagesList['CatalogsList']"/>
+                    <CatalogsList v-else :ActivePage="ActivePage"/>
                     <MainNews />
-                        <!-- <router-view>
-                        </router-view> -->
                 </div>
             </div>
         </div>
@@ -29,30 +29,33 @@ import MainCatalog from "./MainContent/MainCatalog.vue";
 import CatalogsList from "./MainContent/CatalogsList.vue";
 
     export default {
+        props: {
+            getActiveCart: String
+        },
         data() {
             return {
                 PagesList: {
-                    'MainCatalog': true,
-                    'CatalogsList': false,
-                }
-                
+                    'MainCatalog': true
+                },
+                ActivePage: 'MainCatalog',
             }
         },
         methods: {
             getActiveCatalog(ActivePage) {
-                let newObj = {...this.PagesList};
-                
-                for(let key in newObj) {
-                    if(key == ActivePage) {
-                        newObj = {...newObj, [key]: true}
-                    } else {
-                        newObj = {...newObj, [key]: false}
-                    }
+                let Active = ActivePage;
+                if(this.getActiveCart !== '') {
+                    Active = this.getActiveCart;
                 }
-                this.PagesList = newObj;
-            },
 
+                if(Active === 'MainCatalog') {
+                    this.PagesList['MainCatalog'] = true;
+                } else {
+                    this.PagesList['MainCatalog'] = false;
+                    this.ActivePage = Active;
+                }
+            },
         },
+        
         components: {
             MainImg,
             SearchComponent,

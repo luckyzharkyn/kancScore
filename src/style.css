@@ -1,6 +1,8 @@
-body {
+body,
+html {
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 }
 .container {
   max-width: 1000px;
@@ -37,7 +39,8 @@ body {
   align-items: center;
 }
 main .main__img {
-  background-image: url('https://klike.net/uploads/posts/2020-03/1583399713_3.jpg');
+  background-image: url('https://kanc.kz/upload/images/18259_512535_10.jpg');
+  filter: blur(1px);
   width: 100%;
   height: 150px;
   background-size: cover;
@@ -70,6 +73,11 @@ main .main__content .sidebar ul li:first-child {
   background-color: #44d144;
   color: white;
 }
+main .main__content .sidebar ul .active {
+  color: red;
+  text-shadow: 1px 1px 1px #000;
+  transition: .5s ease;
+}
 main .main__content .site_content .search {
   display: grid;
   grid-template-columns: 75% 25%;
@@ -87,17 +95,16 @@ main .main__content .site_content .search .phoneNumber {
 main .main__content .site_content .main__content__advertisement {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  grid-template-rows: 25% 25% 25%;
+  grid-template-rows: 1fr;
 }
 main .main__content .site_content .main__content__advertisement img {
   width: 100%;
 }
 main .main__content .site_content .main__content__advertisement .poster {
-  grid-row-start: 1;
-  grid-row-end: 3;
+  grid-row: span 1;
 }
 main .main__content .site_content .main__content__advertisement .poster2 {
-  justify-self: stretch;
+  grid-row: span 1;
 }
 main .main__content .site_content .main__content__advertisement .poster-nav ul {
   margin: 0;

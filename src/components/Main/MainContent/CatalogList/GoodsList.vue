@@ -11,7 +11,7 @@
                 <div class="list_dates">
                     <div class="list_dates-header">
                         <p>{{item.id}}</p>
-                        <button>
+                        <button @click="setCart(item.id)">
                             in cart
                         </button>
                     </div>
@@ -26,7 +26,8 @@
 <script>
     export default {
         props: {
-            ListItems: Array
+            ListItems: Array,
+             setInCart: Function
         },
         data() {
             return {
@@ -37,6 +38,9 @@
             getPrice(price) {
                 return price + " тг";
             },
+            setCart(id) {
+                this.setInCart(id);
+            }
     },
     }
 </script>
