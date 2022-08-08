@@ -1,14 +1,19 @@
 <template>
     <div class="main__catalogs" :class="getAnimation()">
-        <CatalogOptionsFilters />
+        <CatalogOptionsFilters v-if="ActivePage !== 'inCart'"/>
         <GoodsList :ListItems="getListItems()" 
-                   :setInCart="setInCart"/>
+                   :setInCart="setInCart"
+                   v-if="ActivePage !== 'inCart'"/>
+        <CartComponent 
+            :ListItems="getListItems()"
+            v-else/>
     </div>
 </template>
 
 <script>
 import CatalogOptionsFilters from './CatalogList/CatalogOptionsFilters.vue';
 import GoodsList from './CatalogList/GoodsList.vue';
+import CartComponent from './CatalogList/CartComponent.vue';
 
     export default {
     props: {
@@ -118,18 +123,16 @@ import GoodsList from './CatalogList/GoodsList.vue';
                     })
                }
             }
-            for(let obj of this.ListItems['inCart']) {
-                alert(obj.id);
-            }
         },
         getAnimation() {
             return {swap: true}
 
         }
     },
-    components: { 
-        CatalogOptionsFilters, 
-        GoodsList 
-    }
+    components: {
+    CatalogOptionsFilters,
+    GoodsList,
+    CartComponent
+}
 }
 </script>
