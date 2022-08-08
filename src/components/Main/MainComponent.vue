@@ -9,7 +9,6 @@
                 <SideBar :getActiveCatalog="getActiveCatalog"/>
 
                 <div class="site_content">
-
                     <SearchComponent />
                     <MainCatalog v-if="PagesList['MainCatalog']"/>
                     <CatalogsList v-else :ActivePage="ActivePage"/>
@@ -30,30 +29,17 @@ import CatalogsList from "./MainContent/CatalogsList.vue";
 
     export default {
         props: {
-            getActiveCart: String
+            PagesList: Object,
+            ActivePage: String,
+            getActiveCatalog: Function
         },
         data() {
             return {
-                PagesList: {
-                    'MainCatalog': true
-                },
-                ActivePage: 'MainCatalog',
+               
             }
         },
         methods: {
-            getActiveCatalog(ActivePage) {
-                let Active = ActivePage;
-                if(this.getActiveCart !== '') {
-                    Active = this.getActiveCart;
-                }
-
-                if(Active === 'MainCatalog') {
-                    this.PagesList['MainCatalog'] = true;
-                } else {
-                    this.PagesList['MainCatalog'] = false;
-                    this.ActivePage = Active;
-                }
-            },
+            
         },
         
         components: {

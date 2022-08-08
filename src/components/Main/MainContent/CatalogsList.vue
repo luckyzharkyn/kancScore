@@ -124,6 +124,7 @@ import GoodsList from './CatalogList/GoodsList.vue';
         },
         getAnimation() {
             return {swap: true}
+
         }
     },
     components: { 

@@ -93,7 +93,7 @@ import AdvertisementBlock from './AdvertisementBlock.vue'
     methods: {
         addAnimation() {
             return {slideRight : true}
-        }
+        },
     },
     components: { AdvertisementBlock }
 }

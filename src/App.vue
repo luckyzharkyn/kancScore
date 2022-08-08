@@ -1,8 +1,12 @@
 <template>
    <div class="container">
-        <HeaderComponent :setInCart="setInCart"/>
+        <HeaderComponent :getActiveCatalog="getActiveCatalog"/>
     </div>
-    <MainComponent :getActiveCart="getActiveCart"/>
+    <MainComponent 
+                  :PagesList="PagesList"
+                  :ActivePage="ActivePage"
+                  :getActiveCatalog="getActiveCatalog"
+    />
     <div class="container">
         <FooterComponent />
     </div>
@@ -17,16 +21,23 @@ import MainComponent from "./components/Main/MainComponent.vue";
     name: "app",
     data() {
         return {
-           getActiveCart: ""
+            PagesList: {
+                    'MainCatalog': true
+            },
+            ActivePage: 'MainCatalog',
         }
     },
     methods: {
-      setInCart(value) {
-        this.getActiveCart = value;
-        setTimeout(() => {
-          this.getActiveCart = "";
-        }, 1000);
-      },
+        getActiveCatalog(ActivePage) {
+            let Active = ActivePage;    
+
+            if(Active === 'MainCatalog') {
+                this.PagesList['MainCatalog'] = true;
+            } else {
+                this.PagesList['MainCatalog'] = false;
+                this.ActivePage = Active;
+            }
+        },
     },
     components: {
     HeaderComponent,

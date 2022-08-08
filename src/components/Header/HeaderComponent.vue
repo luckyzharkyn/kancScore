@@ -20,7 +20,7 @@
                     Авторизация
                 </div>
                 <div class="cart"
-                     @click="setCart()">
+                    @click="getActiveCatalog('inCart')">
                     Корзина
                 </div>
         </Header>
@@ -29,7 +29,7 @@
 <script>
     export default {
         props: {
-            setInCart: Function
+            getActiveCatalog: Function
         },
         data() {
             return {
@@ -44,9 +44,7 @@
             }
         },
         methods: {
-            setCart() {
-                this.setInCart('inCart');
-            }
+            
         }
     }
 </script>

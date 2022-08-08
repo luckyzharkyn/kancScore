@@ -37,7 +37,5 @@
                 ]
             }
         },
-        methods: {
-        }
     }
 </script>
