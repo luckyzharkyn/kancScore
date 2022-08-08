@@ -1,14 +1,18 @@
 <template>
    <div class="container">
+
         <HeaderComponent :getActiveCatalog="getActiveCatalog"/>
+
     </div>
-    <MainComponent 
-                  :PagesList="PagesList"
-                  :ActivePage="ActivePage"
-                  :getActiveCatalog="getActiveCatalog"
-    />
+
+    <MainComponent :PagesList="PagesList"
+                   :ActivePage="ActivePage"
+                   :getActiveCatalog="getActiveCatalog"/>
+
     <div class="container">
+
         <FooterComponent />
+
     </div>
 </template>
 

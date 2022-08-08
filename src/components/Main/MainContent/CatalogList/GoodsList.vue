@@ -11,8 +11,11 @@
                 <div class="list_dates">
                     <div class="list_dates-header">
                         <p>{{item.id}}</p>
-                        <button @click="setCart(item.id)">
+                        <button @click="setCart(item.id)" v-if="!item.inCart">
                             in cart
+                        </button>
+                        <button  @click="deleteFromCart(item.id)" v-else>
+                            удалить
                         </button>
                     </div>
                     <div class="list_dates-footer">
@@ -27,7 +30,8 @@
     export default {
         props: {
             ListItems: Array,
-             setInCart: Function
+            setInCart: Function,
+            deleteFromCart: Function
         },
         data() {
             return {

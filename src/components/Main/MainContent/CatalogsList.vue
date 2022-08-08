@@ -1,11 +1,16 @@
 <template>
     <div class="main__catalogs" :class="getAnimation()">
+
         <CatalogOptionsFilters v-if="ActivePage !== 'inCart'"/>
+
         <GoodsList :ListItems="getListItems()" 
                    :setInCart="setInCart"
+                   :deleteFromCart="deleteFromCart"
                    v-if="ActivePage !== 'inCart'"/>
+
         <CartComponent 
             :ListItems="getListItems()"
+            :deleteFromCart="deleteFromCart"
             v-else/>
     </div>
 </template>
@@ -17,7 +22,7 @@ import CartComponent from './CatalogList/CartComponent.vue';
 
     export default {
     props: {
-        ActivePage: String
+        ActivePage: String,
     },
     data() {
         return {
@@ -30,7 +35,8 @@ import CartComponent from './CatalogList/CartComponent.vue';
                         name: "Леска строительная, 50 м.    ",
                         description: "Леска строительная, намотка катушки 50 метров, толщина 0,8 мм.",
                         price: 180,
-                        href: "#"
+                        href: "#",
+                        inCart: false
                     },
                     {
                         id: 21012,
@@ -39,7 +45,8 @@ import CartComponent from './CatalogList/CartComponent.vue';
                         name: "Ковш стальной строительный, 160 мм, деревянная ручка",
                         description: "Стальной ковш в форме полусферы с деревянной ручкой. Ручка отшлифована и покрыта бесцветным лаком. Служит для набрасывания штукатурного и цементного раствора при проведении различных ремонтно-строительных работ.",
                         price: 260,
-                        href: "#"
+                        href: "#",
+                        inCart: false
                     }
                 ],
                 'Automotiveproducts': [
@@ -50,7 +57,8 @@ import CartComponent from './CatalogList/CartComponent.vue';
                         name: "Пакеты для шин 900 х1000 18 мкм, для R 13-16, 4 шт. в комплекте  STELS",
                         description: "Описание Пакеты для шин используются для хранения и транспортировки шин. Размер пакета 1000*1000 мм, толщина 18 мкм, используются для шин радиусом 13-16  ",
                         price: 410,
-                        href: "#"
+                        href: "#",
+                        inCart: false
                     },
                     {
                         id: 21818,
@@ -59,7 +67,8 @@ import CartComponent from './CatalogList/CartComponent.vue';
                         name: "Щетка автомобильная Svip, от снега и льда, со скребком, 53см  Svip",
                         description: "Удобная и практичная щетка-скребок предназначена для ухода за автомобилем в зимнее время. С помощью качественной щетины легко и просто убирать снег, а скребок помогает убрать наледь со стеклянных поверхностей.  ",
                         price: 525 ,
-                        href: "#"
+                        href: "#",
+                        inCart: false
                     },
                     {
                         id: 14088,
@@ -68,7 +77,8 @@ import CartComponent from './CatalogList/CartComponent.vue';
                         name: "Воронка пластмассовая, D 160 мм, гибкий наконечник для горюче-смазочных материалов SPARTA  SPARTA",
                         description: "Описание Воронка изготовлена из пластмассы. Используется для залива горюче-смазочных материалов. Конструкция воронки позволяет выполнять фильтрацию заливаемых жидкостей, также имеется гибкий наконечник для работ в труднодоступных местах.  ",
                         price: 550  ,
-                        href: "#"
+                        href: "#",
+                        inCart: false
                     },
                 ],
                 'Paperandcardboard': [
@@ -79,7 +89,8 @@ import CartComponent from './CatalogList/CartComponent.vue';
                         name: "Бумага упакоковочная марки Б пл.90, ф.84 (Группа Илим)  Группа Илим",
                         description: "Группа «Илим» — ответственный лесопользователь и лидер добровольной лесной сертификации. Все арендованные компанией лесные участки площадью 6 млн га сертифицированы по стандартам FSC (Forest Stewardship council) и PEFC (Program for the Endorsement of Forest Certification schemes). ... Упаковочная бумага из 100% беленой целлюлозы выпускается трех марок с разными техническими параметрами, обусловленными конечным применением. Марка А — производство ламинированной упаковки, марка Б — мешки и пакеты для сыпучих продуктов (мука, сахар), марка В — влагопрочная бумага (изготавливается по запросу).  ",
                         price: 5000,
-                        href: "#"
+                        href: "#",
+                        inCart: false
                     },
                 ],
                 'paperproducts': [
@@ -90,7 +101,8 @@ import CartComponent from './CatalogList/CartComponent.vue';
                         name: "Конверт бумажный 125*125 для CD, KurtStrip, декстрин  Курт и К",
                         description: "Бумажный конверт для хранения оптических дисков диаметром 12 см  ",
                         price: 13,
-                        href: "#"
+                        href: "#",
+                        inCart: false
                     },
                 ],
                 'Childrensproducts': [
@@ -101,7 +113,8 @@ import CartComponent from './CatalogList/CartComponent.vue';
                         name: "Кубики 'Союзмультфильм. Чебурашка', 12шт., Step Puzzle  Step Puzzle",
                         description: "Наборы из 12 кубиков – для тех, кто освоил навык сборки картинки из 9 кубиков. Заложенный дидактический принцип «от простого к сложному» позволит ребёнку поверить в свои силы. А герои популярного мультика Disney сделают кубики любимой игрушкой. Играя  ",
                         price: 924 ,
-                        href: "#"
+                        href: "#",
+                        inCart: false
                     },
                 ],
                 'inCart': []
@@ -118,7 +131,21 @@ import CartComponent from './CatalogList/CartComponent.vue';
                if(key !== 'inCart') {
                     this.ListItems[key].map(objItem => {
                         if(objItem.id === id) {
+                            objItem.inCart = true;
                             this.ListItems['inCart'].push(objItem);
+                        }
+                    })
+               }
+            }
+        },
+        deleteFromCart(id) {
+            for(let key in this.ListItems) {
+                if(key == 'inCart') {
+                   this.ListItems[key] = this.ListItems[key].filter(objItem => objItem.id !== id);
+               } else {
+                    this.ListItems[key].map(objItem => {
+                        if(objItem.id === id) {
+                            objItem.inCart = false;
                         }
                     })
                }

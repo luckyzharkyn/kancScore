@@ -14,7 +14,7 @@
                         <button>
                             купить
                         </button>
-                        <button>
+                        <button  @click="deleteFromCart(item.id)">
                             удалить
                         </button>
                     </div>
@@ -30,6 +30,7 @@
     export default {
         props: {
             ListItems: Array,
+            deleteFromCart: Function
         },
         data() {
             return {
